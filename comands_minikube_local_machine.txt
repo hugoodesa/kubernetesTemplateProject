@@ -1,0 +1,38 @@
+GETS 
+
+kubectl get node
+kubectl get pods
+kubectl get pod -o wide
+kubectl get service
+kubectl get deployment
+kubectl get all
+kubectl get replicaset
+kubectl logs <pod-name>
+
+
+CREATE (important you never will be creating pod or interacting with those)
+kubectl create deployment nginx-depl --image=nginx ==> the deployment will create the pod
+
+LOGS
+kubectl logs <pod-name>
+
+EDIT deployment
+kubectl edit deployment mymongo
+
+EXEC
+kubectl exec -it <pod-name> bash
+exemple : kubectl exec -it pod/mymongo-569754d856-fzs5d bash
+
+DELETE
+kubectl delete deployment nginx-depl <deployment-name>
+
+APPLY
+kubectl apply -f file.yaml (deployment or service)
+
+DESCRIBE
+kubectl describe service mywebapp
+
+TO SERVICE BE ACCESEFULLY IN THE HOST
+1- create a service with type loadbalancer , put a nodeport that poits to the kubernets range port 
+
+2- run the command : minikube service <service-name>
